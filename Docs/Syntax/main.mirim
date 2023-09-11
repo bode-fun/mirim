@@ -1,0 +1,20 @@
+import std.fmt
+
+struct Person {
+    Name string
+
+    // Implied if not specified
+    New(name string) {
+        self.Name = name
+    }
+
+    fun SayHello(self) string {
+        return "Hello, ${self.Name}\n"
+    }
+}
+
+fun main() {
+    Person me = Person.New()
+
+    fmt.Print(me.SayHello())
+}
