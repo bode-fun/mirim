@@ -14,10 +14,14 @@ enum TokenKind {
   rParenthesis,
 };
 
+/**
+ * A piece of text, which holds a specific meaning for the compilation process.
+ */
 class Token {
 public:
+  Token(TokenKind kind, std::string value);
+
+private:
   TokenKind kind;
   std::string value;
-
-  Token(TokenKind kind, std::string value);
 };
