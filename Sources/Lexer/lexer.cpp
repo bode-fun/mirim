@@ -16,9 +16,9 @@ private:
    * Returns the current character and bumps the cursor.
    * If there is no character left, it returns '\0' as EOF.
    */
-  char bump() {
+  auto bump() -> char {
     if (this->cursor < this->input.length()) {
-      char current_char = this->input.at(this->cursor);
+      auto current_char = this->input.at(this->cursor);
       this->cursor += 1;
       return current_char;
     }
@@ -29,10 +29,10 @@ private:
   /**
    * Returns the next character from the input without incrementing the cursor.
    */
-  char peek() {
+  auto peek() const -> char {
     if (this->cursor < this->input.length() - 1) {
-      char current_char = this->input.at(this->cursor + 1);
-      return current_char;
+      auto next_char = this->input.at(this->cursor + 1);
+      return next_char;
     }
 
     return '\0';
@@ -41,7 +41,7 @@ private:
   /**
    * Moves the lexer's cursor until a character is reached.
    */
-  void eat_whitespace() {
+  auto eat_whitespace() -> void {
     while (this->is_whitespace(this->peek())) {
       this->bump();
     }
@@ -50,7 +50,7 @@ private:
   /**
    * Determins if the given character is whitespace.
    */
-  static bool is_whitespace(char input) {
+  static auto is_whitespace(char input) -> bool {
     switch (input) {
     case ' ':
     case '\n':
