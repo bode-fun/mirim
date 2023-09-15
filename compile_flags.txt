@@ -3,3 +3,7 @@
 -Wextra
 -Wpedantic
 -Werror
+-fsanitize=address
+-fno-omit-frame-pointer
+-g
+-O1
