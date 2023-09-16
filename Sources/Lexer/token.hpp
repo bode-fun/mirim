@@ -2,6 +2,9 @@
 
 #include <string>
 
+namespace Mirim {
+namespace Lexer {
+
 enum TokenKind {
   illegal,
   eof,
@@ -25,3 +28,6 @@ private:
   TokenKind kind;
   std::string value;
 };
+
+} // namespace Lexer
+} // namespace Mirim

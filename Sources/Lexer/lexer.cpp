@@ -4,6 +4,9 @@
 #include <string>
 #include <string_view>
 
+namespace Mirim {
+namespace Lexer {
+
 /**
  * A cursor based lexer, which extracts tokens from a given input.
  */
@@ -63,3 +66,6 @@ private:
 public:
   Lexer(std::string_view input) : input(input) {}
 };
+
+} // namespace Lexer
+} // namespace Mirim
