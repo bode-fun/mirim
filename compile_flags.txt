@@ -1,4 +1,4 @@
--std=c++20
+-std=c++2b
 -Wall
 -Wextra
 -Wpedantic
@@ -6,4 +6,3 @@
 -fsanitize=address
 -fno-omit-frame-pointer
 -g
--O1
