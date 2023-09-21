@@ -47,7 +47,7 @@ fun main(args: string[]) int {
 ```
 
 ```mirim
-fun main() int {
+fun main(args: string[]) int {
     let exit_code = if args[0] == "foo" {
         return 0
     } else if args[0] == "bar" {
