@@ -76,7 +76,7 @@ Iterate over lists or sets and get the corresponding index.
 fun main(args: string[]) int {
     var args_count = 0
 
-    for idx, _ of elements {
+    for idx, _ of args {
         args_count = idx + 1
     }
 
@@ -102,5 +102,76 @@ fun main() int {
     }
 
     return point_sum
+}
+```
+
+### **break**
+
+This keyword terminates the execution of a loop.
+
+#### Syntax:
+
+```mirim
+for <IDENTIFIER> of <ITERABLE> {
+    break
+}
+```
+
+```mirim
+for <IDENTIFIER>, <IDENTIFIER> of <ITERABLE> {
+    break
+}
+```
+
+#### Examples:
+
+```mirim
+fun main(args: string[]) int {
+    var args_until_foo = 0
+
+    for idx, arg of args {
+        if arg == "foo" {
+            args_until_foo = idx + 1
+            break
+        }
+    }
+
+    return args_until_foo
+}
+```
+
+### **continue**
+
+This keyword skips one cycle of a loop.
+
+#### Syntax:
+
+```mirim
+for <IDENTIFIER> of <ITERABLE> {
+    continue
+}
+```
+
+```mirim
+for <IDENTIFIER>, <IDENTIFIER> of <ITERABLE> {
+    continue
+}
+```
+
+#### Examples:
+
+```mirim
+fun main(args: string[]) int {
+    var args_count_without_foo = 0
+
+    for _, arg of args {
+        if arg == "foo" {
+            continue
+        }
+
+        args_count_without_foo = args_count_without_foo + 1
+    }
+
+    return args_count_without_foo
 }
 ```
