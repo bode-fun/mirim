@@ -4,7 +4,7 @@ title: Main
 
 The entry point of a program.
 
-## Functions
+## Functions:
 
 ### **main**
 
@@ -19,7 +19,7 @@ fun main() int
 ```
 
 ```mirim
-fun main(args: string[]) int
+fun main(args string[]) int
 ```
 
 ```mirim
@@ -27,7 +27,7 @@ fun main()
 ```
 
 ```mirim
-fun main(args: string[])
+fun main(args string[])
 ```
 
 
@@ -58,7 +58,7 @@ fun main() int {
 ```
 
 ```mirim
-fun main(args: string[]) int {
+fun main(args string[]) int {
     if args[0] == "main" {
         return 0
     } else {

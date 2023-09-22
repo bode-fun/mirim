@@ -4,7 +4,7 @@ title: If
 
 Branch the program flow conditionally.
 
-## Keywords
+## Keywords:
 
 ### **if**
 
@@ -37,7 +37,7 @@ if <BOOLEAN> {}
 #### Examples:
 
 ```mirim
-fun main(args: string[]) int {
+fun main(args string[]) int {
     if args[0] == "foo" {
         return 0
     } else {
@@ -47,7 +47,7 @@ fun main(args: string[]) int {
 ```
 
 ```mirim
-fun main(args: string[]) int {
+fun main() int {
     let exit_code = if args[0] == "foo" {
         return 0
     } else if args[0] == "bar" {

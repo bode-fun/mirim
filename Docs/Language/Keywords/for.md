@@ -4,7 +4,7 @@ title: For
 
 Repeat a block multiple times.
 
-## Keywords
+## Keywords:
 
 ### **for**
 
@@ -73,7 +73,7 @@ fun main() int {
 Iterate over lists or sets and get the corresponding index.
 
 ```mirim
-fun main(args: string[]) int {
+fun main(args string[]) int {
     var args_count = 0
 
     for idx, _ of args {
@@ -126,7 +126,7 @@ for <IDENTIFIER>, <IDENTIFIER> of <ITERABLE> {
 #### Examples:
 
 ```mirim
-fun main(args: string[]) int {
+fun main(args string[]) int {
     var args_until_foo = 0
 
     for idx, arg of args {
@@ -161,7 +161,7 @@ for <IDENTIFIER>, <IDENTIFIER> of <ITERABLE> {
 #### Examples:
 
 ```mirim
-fun main(args: string[]) int {
+fun main(args string[]) int {
     var args_count_without_foo = 0
 
     for _, arg of args {
