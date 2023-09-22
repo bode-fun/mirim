@@ -4,7 +4,7 @@
 #include <string>
 
 namespace Mirim {
-namespace Lexer {
+namespace Tokenizer {
 
 enum TokenKind : int8_t {
   // Special Tokens
@@ -131,5 +131,5 @@ private:
   std::string value;
 };
 
-} // namespace Lexer
+} // namespace Tokenizer
 } // namespace Mirim

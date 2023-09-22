@@ -1,9 +1,9 @@
 #include "token.hpp"
 
 namespace Mirim {
-namespace Lexer {
+namespace Tokenizer {
 
 Token::Token(TokenKind kind, std::string value) : kind(kind), value(value) {}
 
-} // namespace Lexer
+} // namespace Tokenizer
 } // namespace Mirim
