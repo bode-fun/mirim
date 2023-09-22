@@ -1,20 +1,20 @@
 import std.fmt
 
 struct Person {
-    Name string
+    pub let name string
 
     // Implied if not specified
-    New(name string) {
-        self.Name = name
+    init(name string) {
+        self.name = name
     }
 
-    fun SayHello(self) string {
-        return "Hello, ${self.Name}\n"
+    pub fun say_hello(self) string {
+        return `Hello, ${self.name}\n`
     }
 }
 
-fun main() {
-    Person me = Person.New()
+pub fun main(args string[]) {
+    let me = Person(name = args[0])
 
-    fmt.Print(me.SayHello())
+    fmt.print(me.say_hello())
 }
