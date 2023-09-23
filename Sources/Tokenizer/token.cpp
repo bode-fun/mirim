@@ -3,7 +3,8 @@
 namespace Mirim {
 namespace Tokenizer {
 
-Token::Token(TokenKind kind, std::string value) : kind(kind), value(value) {}
+Token::Token(TokenKind::TokenKind kind, std::string value)
+    : kind(kind), value(value) {}
 
 } // namespace Tokenizer
 } // namespace Mirim

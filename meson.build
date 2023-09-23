@@ -12,7 +12,7 @@ project(
     default_options: [
         'cpp_std=c++20', # TODO: Update to c++23
         'warning_level=3',
-        # 'werror=true',
+        'werror=true',
         # 'optimization=0',
         # 'prefer_static=false',
         # 'debug=true',

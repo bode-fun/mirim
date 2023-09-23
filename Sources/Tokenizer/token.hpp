@@ -6,6 +6,8 @@
 namespace Mirim {
 namespace Tokenizer {
 
+namespace TokenKind {
+
 /**
  * The category which a token belongs to.
  */
@@ -122,16 +124,19 @@ enum TokenKind : int8_t {
   // End Keywords
 };
 
+} // namespace TokenKind
+
 /**
  * A piece of text, which holds a specific meaning for the compilation process.
  */
 class Token {
 public:
-  Token(TokenKind kind, std::string value);
+  TokenKind::TokenKind kind;
+  std::string value;
+
+  Token(TokenKind::TokenKind kind, std::string value);
 
 private:
-  TokenKind kind;
-  std::string value;
 };
 
 } // namespace Tokenizer

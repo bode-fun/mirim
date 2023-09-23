@@ -18,8 +18,8 @@ Tokenizer::Tokenizer(std::string_view input) : source(input) {
 }
 
 auto Tokenizer::next() -> Token {
-  assert(false || "Not implemented.");
-  return Token(TokenKind::Illegal, "Not implemented");
+  auto tok = Token(TokenKind::Eof, "");
+  return tok;
 }
 
 } // namespace Tokenizer
