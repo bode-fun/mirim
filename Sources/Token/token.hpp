@@ -3,14 +3,12 @@
 #include <cstdint>
 
 namespace Mirim {
-namespace Tokenizer {
-
-namespace TokenKind {
+namespace Token {
 
 /**
  * The category which a token belongs to.
  */
-enum TokenKind : int8_t { // TODO: Is _ a keyword?
+enum Kind : int8_t { // TODO: Is _ a keyword?
   // Special Tokens
   Illegal,
   Eof,
@@ -123,19 +121,17 @@ enum TokenKind : int8_t { // TODO: Is _ a keyword?
   // End Keywords
 };
 
-} // namespace TokenKind
-
 /**
  * A piece of text, which holds a specific meaning for the compilation process.
  */
 class Token {
 public:
-  TokenKind::TokenKind kind;
+  Kind kind;
 
-  Token(TokenKind::TokenKind kind);
+  Token(Kind kind);
 
 private:
 };
 
-} // namespace Tokenizer
+} // namespace Token
 } // namespace Mirim

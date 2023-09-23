@@ -1,7 +1,7 @@
-#include "Tokenizer/token.hpp"
-#include "Tokenizer/tokenizer.hpp"
+#include <Token/token.hpp>
+#include <Tokenizer/tokenizer.hpp>
 
-#include "catch2/catch_test_macros.hpp"
+#include <catch2/catch_test_macros.hpp>
 
 #include <cstdint>
 #include <string>
@@ -18,7 +18,7 @@ TEST_CASE("Tokenizer skips BOM at the beginning") {
   auto tokenizer = Mirim::Tokenizer::Tokenizer(input);
   auto tok = tokenizer.next();
 
-  REQUIRE(tok.kind == Mirim::Tokenizer::TokenKind::Eof);
+  REQUIRE(tok.kind == Mirim::Token::Eof);
 }
 
 TEST_CASE("Tokenizer sees 0 byte as an illegal token") {
@@ -28,7 +28,7 @@ TEST_CASE("Tokenizer sees 0 byte as an illegal token") {
   auto tokenizer = Mirim::Tokenizer::Tokenizer(input);
   auto tok = tokenizer.next();
 
-  REQUIRE(tok.kind == Mirim::Tokenizer::TokenKind::Illegal);
+  REQUIRE(tok.kind == Mirim::Token::Illegal);
 }
 
 TEST_CASE("Tokenizer tokenizes single char operators correctly") {
@@ -36,37 +36,37 @@ TEST_CASE("Tokenizer tokenizes single char operators correctly") {
 
   auto tokenizer = Mirim::Tokenizer::Tokenizer(input);
 
-  std::vector<Mirim::Tokenizer::Token> expected_tokens = {
-      Mirim::Tokenizer::Token(Mirim::Tokenizer::TokenKind::Plus),
-      Mirim::Tokenizer::Token(Mirim::Tokenizer::TokenKind::Minus),
-      Mirim::Tokenizer::Token(Mirim::Tokenizer::TokenKind::Star),
-      Mirim::Tokenizer::Token(Mirim::Tokenizer::TokenKind::Slash),
+  std::vector<Mirim::Token::Token> expected_tokens = {
+      Mirim::Token::Token(Mirim::Token::Plus),
+      Mirim::Token::Token(Mirim::Token::Minus),
+      Mirim::Token::Token(Mirim::Token::Star),
+      Mirim::Token::Token(Mirim::Token::Slash),
 
-      Mirim::Tokenizer::Token(Mirim::Tokenizer::TokenKind::Percent),
-      Mirim::Tokenizer::Token(Mirim::Tokenizer::TokenKind::Equal),
-      Mirim::Tokenizer::Token(Mirim::Tokenizer::TokenKind::Bang),
-      Mirim::Tokenizer::Token(Mirim::Tokenizer::TokenKind::Ampersand),
+      Mirim::Token::Token(Mirim::Token::Percent),
+      Mirim::Token::Token(Mirim::Token::Equal),
+      Mirim::Token::Token(Mirim::Token::Bang),
+      Mirim::Token::Token(Mirim::Token::Ampersand),
 
-      Mirim::Tokenizer::Token(Mirim::Tokenizer::TokenKind::Pipe),
-      Mirim::Tokenizer::Token(Mirim::Tokenizer::TokenKind::Caret),
-      Mirim::Tokenizer::Token(Mirim::Tokenizer::TokenKind::AngleBracketLeft),
-      Mirim::Tokenizer::Token(Mirim::Tokenizer::TokenKind::AngleBracketRight),
+      Mirim::Token::Token(Mirim::Token::Pipe),
+      Mirim::Token::Token(Mirim::Token::Caret),
+      Mirim::Token::Token(Mirim::Token::AngleBracketLeft),
+      Mirim::Token::Token(Mirim::Token::AngleBracketRight),
 
-      Mirim::Tokenizer::Token(Mirim::Tokenizer::TokenKind::Comma),
-      Mirim::Tokenizer::Token(Mirim::Tokenizer::TokenKind::Period),
-      Mirim::Tokenizer::Token(Mirim::Tokenizer::TokenKind::Colon),
-      Mirim::Tokenizer::Token(Mirim::Tokenizer::TokenKind::Pound),
-      Mirim::Tokenizer::Token(Mirim::Tokenizer::TokenKind::QuestionMark),
+      Mirim::Token::Token(Mirim::Token::Comma),
+      Mirim::Token::Token(Mirim::Token::Period),
+      Mirim::Token::Token(Mirim::Token::Colon),
+      Mirim::Token::Token(Mirim::Token::Pound),
+      Mirim::Token::Token(Mirim::Token::QuestionMark),
 
-      Mirim::Tokenizer::Token(Mirim::Tokenizer::TokenKind::LParen),
-      Mirim::Tokenizer::Token(Mirim::Tokenizer::TokenKind::LBrack),
-      Mirim::Tokenizer::Token(Mirim::Tokenizer::TokenKind::LBrace),
+      Mirim::Token::Token(Mirim::Token::LParen),
+      Mirim::Token::Token(Mirim::Token::LBrack),
+      Mirim::Token::Token(Mirim::Token::LBrace),
 
-      Mirim::Tokenizer::Token(Mirim::Tokenizer::TokenKind::RParen),
-      Mirim::Tokenizer::Token(Mirim::Tokenizer::TokenKind::RBrack),
-      Mirim::Tokenizer::Token(Mirim::Tokenizer::TokenKind::RBrace),
+      Mirim::Token::Token(Mirim::Token::RParen),
+      Mirim::Token::Token(Mirim::Token::RBrack),
+      Mirim::Token::Token(Mirim::Token::RBrace),
 
-      Mirim::Tokenizer::Token(Mirim::Tokenizer::TokenKind::Eof),
+      Mirim::Token::Token(Mirim::Token::Eof),
   };
 
   for (uint32_t i = 0; i <= input.length(); i++) {

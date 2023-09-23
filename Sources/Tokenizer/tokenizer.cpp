@@ -1,5 +1,5 @@
 #include "tokenizer.hpp"
-#include "token.hpp"
+#include "../Token/token.hpp"
 
 #include <cassert>
 #include <string_view>
@@ -17,9 +17,9 @@ Tokenizer::Tokenizer(std::string_view input) : source(input) {
   }
 }
 
-auto Tokenizer::next() -> Token {
+auto Tokenizer::next() -> Token::Token {
   if (index >= source.length()) {
-    return Token(TokenKind::Eof);
+    return Token::Token(Token::Eof);
   }
 
   auto ch = source.at(index);
@@ -28,53 +28,53 @@ auto Tokenizer::next() -> Token {
 
   // A switch doesn't seem to work.
   if (ch == 0) {
-    return Token(TokenKind::Illegal);
+    return Token::Token(Token::Illegal);
   } else if (ch == '+') {
-    return Token(TokenKind::Plus);
+    return Token::Token(Token::Plus);
   } else if (ch == '-') {
-    return Token(TokenKind::Minus);
+    return Token::Token(Token::Minus);
   } else if (ch == '*') {
-    return Token(TokenKind::Star);
+    return Token::Token(Token::Star);
   } else if (ch == '/') {
-    return Token(TokenKind::Slash);
+    return Token::Token(Token::Slash);
   } else if (ch == '%') {
-    return Token(TokenKind::Percent);
+    return Token::Token(Token::Percent);
   } else if (ch == '=') {
-    return Token(TokenKind::Equal);
+    return Token::Token(Token::Equal);
   } else if (ch == '!') {
-    return Token(TokenKind::Bang);
+    return Token::Token(Token::Bang);
   } else if (ch == '&') {
-    return Token(TokenKind::Ampersand);
+    return Token::Token(Token::Ampersand);
   } else if (ch == '|') {
-    return Token(TokenKind::Pipe);
+    return Token::Token(Token::Pipe);
   } else if (ch == '^') {
-    return Token(TokenKind::Caret);
+    return Token::Token(Token::Caret);
   } else if (ch == '<') {
-    return Token(TokenKind::AngleBracketLeft);
+    return Token::Token(Token::AngleBracketLeft);
   } else if (ch == '>') {
-    return Token(TokenKind::AngleBracketRight);
+    return Token::Token(Token::AngleBracketRight);
   } else if (ch == ',') {
-    return Token(TokenKind::Comma);
+    return Token::Token(Token::Comma);
   } else if (ch == '.') {
-    return Token(TokenKind::Period);
+    return Token::Token(Token::Period);
   } else if (ch == ':') {
-    return Token(TokenKind::Colon);
+    return Token::Token(Token::Colon);
   } else if (ch == '#') {
-    return Token(TokenKind::Pound);
+    return Token::Token(Token::Pound);
   } else if (ch == '?') {
-    return Token(TokenKind::QuestionMark);
+    return Token::Token(Token::QuestionMark);
   } else if (ch == '(') {
-    return Token(TokenKind::LParen);
+    return Token::Token(Token::LParen);
   } else if (ch == '[') {
-    return Token(TokenKind::LBrack);
+    return Token::Token(Token::LBrack);
   } else if (ch == '{') {
-    return Token(TokenKind::LBrace);
+    return Token::Token(Token::LBrace);
   } else if (ch == ')') {
-    return Token(TokenKind::RParen);
+    return Token::Token(Token::RParen);
   } else if (ch == ']') {
-    return Token(TokenKind::RBrack);
+    return Token::Token(Token::RBrack);
   } else if (ch == '}') {
-    return Token(TokenKind::RBrace);
+    return Token::Token(Token::RBrace);
   } else {
     assert(false && "Token not implemented");
   }

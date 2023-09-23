@@ -1,6 +1,6 @@
 #pragma once
 
-#include "token.hpp"
+#include "../Token/token.hpp"
 
 #include <string_view>
 
@@ -17,7 +17,7 @@ public:
   /**
    *  Returns the current token.
    */
-  auto next() -> Token;
+  auto next() -> Token::Token;
 
 private:
   std::uint64_t index;

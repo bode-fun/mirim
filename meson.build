@@ -25,7 +25,7 @@ project(
 )
 
 mirim_sources = files([
-    'Sources/Tokenizer/token.cpp',
+    'Sources/Token/token.cpp',
     'Sources/Tokenizer/tokenizer.cpp',
 ])
 
