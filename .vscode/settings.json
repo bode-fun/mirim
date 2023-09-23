@@ -1,0 +1,4 @@
+{
+    "mesonbuild.buildFolder": "Build",
+    "C_Cpp.default.compileCommands": "Build/compile_commands.json"
+}

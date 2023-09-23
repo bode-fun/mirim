@@ -1,4 +1,5 @@
 # TODO: See References:
+# - https://gitlab.gnome.org/GNOME/nautilus
 # - https://gitlab.gnome.org/GNOME/recipes
 # - https://github.com/cisco/openh264
 # - https://github.com/andlabs/libui
@@ -24,9 +25,18 @@ project(
 )
 
 mirim_sources = files([
-    'Sources/main.cpp',
     'Sources/Tokenizer/token.cpp',
     'Sources/Tokenizer/tokenizer.cpp',
 ])
 
-mirim_exe = executable('mirim', mirim_sources)
+mirim_inc = include_directories('Sources')
+
+mirim_exe_sources = mirim_sources
+mirim_exe_sources += files([
+    'Sources/main.cpp',
+])
+
+mirim_exe = executable('mirim', mirim_exe_sources)
+
+# TODO: Only include if build-options include test
+subdir('Tests')
