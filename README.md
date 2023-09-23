@@ -6,6 +6,13 @@ WebAssembly.
 It is inspired by Go and Swift and strives to archive Go's simplicity with
 Swift's safety, memory management and strong static type system.
 
+## Quick Start
+
+```sh
+$ CC=clang CXX=clang++ meson setup build
+$ meson compile -C build 
+```
+
 ## Goals and Non-goals
 
 ### Goals
