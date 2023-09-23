@@ -1,3 +1,7 @@
-mirim
-mirim.exe
-*.dSYM
+# Build folder
+/Build
+# Temporary development files
+/Tmp
+
+# macOS
+.DS_Store
