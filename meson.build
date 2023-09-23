@@ -25,18 +25,18 @@ project(
 )
 
 mirim_sources = files([
-    'Sources/Token/token.cpp',
-    'Sources/Tokenizer/tokenizer.cpp',
+    'src/token/token.cpp',
+    'src/tokenizer/tokenizer.cpp',
 ])
 
-mirim_inc = include_directories('Sources')
+mirim_inc = include_directories('src')
 
 mirim_exe_sources = mirim_sources
 mirim_exe_sources += files([
-    'Sources/main.cpp',
+    'src/main.cpp',
 ])
 
 mirim_exe = executable('mirim', mirim_exe_sources)
 
 # TODO: Only include if build-options include test
-subdir('Tests')
+subdir('tests')

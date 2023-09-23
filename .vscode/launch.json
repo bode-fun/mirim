@@ -16,7 +16,7 @@
             "type": "lldb",
             "request": "launch",
             "name": "Test",
-            "program": "${workspaceFolder}/build/Tests/mirim-test",
+            "program": "${workspaceFolder}/build/tests/mirim-test",
             "args": [],
             "cwd": "${workspaceFolder}"
         }

@@ -1,5 +1,5 @@
-#include <Token/token.hpp>
-#include <Tokenizer/tokenizer.hpp>
+#include <token/token.hpp>
+#include <tokenizer/tokenizer.hpp>
 
 #include <catch2/catch_test_macros.hpp>
 

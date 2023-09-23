@@ -1,5 +1,5 @@
 #!/bin/sh
 
-CC=clang CXX=clang++ meson setup build &&
+CC=clang CXX=clang++ meson setup --wipe build &&
     meson compile -C build &&
-    ./build/Tests/mirim-test
+    ./build/tests/mirim-test

@@ -1,5 +1,5 @@
 #include "tokenizer.hpp"
-#include "../Token/token.hpp"
+#include "../token/token.hpp"
 
 #include <cassert>
 #include <string_view>
