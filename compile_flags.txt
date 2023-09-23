@@ -1,8 +1,0 @@
--std=c++2b
--Wall
--Wextra
--Wpedantic
--Werror
--fsanitize=address
--fno-omit-frame-pointer
--g
