@@ -6,6 +6,9 @@
 namespace Mirim {
 namespace Tokenizer {
 
+/**
+ * The category which a token belongs to.
+ */
 enum TokenKind : int8_t {
   // Special Tokens
   Illegal,
