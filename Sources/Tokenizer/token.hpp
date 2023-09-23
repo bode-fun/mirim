@@ -1,7 +1,6 @@
 #pragma once
 
 #include <cstdint>
-#include <string>
 
 namespace Mirim {
 namespace Tokenizer {
@@ -11,7 +10,7 @@ namespace TokenKind {
 /**
  * The category which a token belongs to.
  */
-enum TokenKind : int8_t {
+enum TokenKind : int8_t { // TODO: Is _ a keyword?
   // Special Tokens
   Illegal,
   Eof,
@@ -73,9 +72,9 @@ enum TokenKind : int8_t {
   AngleBracketRightEqual,             // >=
   AngleBracketAngleBracketRightEqual, // >>=
 
-  Ellipsis,     // ...
   Comma,        // ,
   Period,       // .
+  Ellipsis,     // ...
   Colon,        // :
   Pound,        // #
   QuestionMark, // ?
@@ -132,9 +131,8 @@ enum TokenKind : int8_t {
 class Token {
 public:
   TokenKind::TokenKind kind;
-  std::string value;
 
-  Token(TokenKind::TokenKind kind, std::string value);
+  Token(TokenKind::TokenKind kind);
 
 private:
 };
