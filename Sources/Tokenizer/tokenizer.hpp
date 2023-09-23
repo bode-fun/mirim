@@ -4,8 +4,8 @@
 
 #include <string_view>
 
-namespace Mirim {
-namespace Tokenizer {
+namespace mirim {
+namespace tokenizer {
 
 /**
  * A cursor based Tokenizer, which extracts tokens from a given source.
@@ -17,12 +17,12 @@ public:
   /**
    *  Returns the current token.
    */
-  auto next() -> Token::Token;
+  auto next() -> token::Token;
 
 private:
   std::uint64_t index;
   std::string_view source;
 };
 
-} // namespace Tokenizer
-} // namespace Mirim
+} // namespace tokenizer
+} // namespace mirim

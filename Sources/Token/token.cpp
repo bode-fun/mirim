@@ -1,9 +1,9 @@
 #include "token.hpp"
 
-namespace Mirim {
-namespace Token {
+namespace mirim {
+namespace token {
 
 Token::Token(Kind kind) : kind(kind) {}
 
-} // namespace Token
-} // namespace Mirim
+} // namespace token
+} // namespace mirim

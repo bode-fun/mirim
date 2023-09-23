@@ -15,58 +15,58 @@ TEST_CASE("Tokenizer skips BOM at the beginning") {
 
   REQUIRE(input.length() == 3);
 
-  auto tokenizer = Mirim::Tokenizer::Tokenizer(input);
+  auto tokenizer = mirim::tokenizer::Tokenizer(input);
   auto tok = tokenizer.next();
 
-  REQUIRE(tok.kind == Mirim::Token::Eof);
+  REQUIRE(tok.kind == mirim::token::Eof);
 }
 
 TEST_CASE("Tokenizer sees 0 byte as an illegal token") {
   auto input = std::string();
   input.push_back(0);
 
-  auto tokenizer = Mirim::Tokenizer::Tokenizer(input);
+  auto tokenizer = mirim::tokenizer::Tokenizer(input);
   auto tok = tokenizer.next();
 
-  REQUIRE(tok.kind == Mirim::Token::Illegal);
+  REQUIRE(tok.kind == mirim::token::Illegal);
 }
 
 TEST_CASE("Tokenizer tokenizes single char operators correctly") {
   std::string input = "+-*/%=!&|^<>,.:#?([{)]}";
 
-  auto tokenizer = Mirim::Tokenizer::Tokenizer(input);
+  auto tokenizer = mirim::tokenizer::Tokenizer(input);
 
-  std::vector<Mirim::Token::Token> expected_tokens = {
-      Mirim::Token::Token(Mirim::Token::Plus),
-      Mirim::Token::Token(Mirim::Token::Minus),
-      Mirim::Token::Token(Mirim::Token::Star),
-      Mirim::Token::Token(Mirim::Token::Slash),
+  std::vector<mirim::token::Token> expected_tokens = {
+      mirim::token::Token(mirim::token::Plus),
+      mirim::token::Token(mirim::token::Minus),
+      mirim::token::Token(mirim::token::Star),
+      mirim::token::Token(mirim::token::Slash),
 
-      Mirim::Token::Token(Mirim::Token::Percent),
-      Mirim::Token::Token(Mirim::Token::Equal),
-      Mirim::Token::Token(Mirim::Token::Bang),
-      Mirim::Token::Token(Mirim::Token::Ampersand),
+      mirim::token::Token(mirim::token::Percent),
+      mirim::token::Token(mirim::token::Equal),
+      mirim::token::Token(mirim::token::Bang),
+      mirim::token::Token(mirim::token::Ampersand),
 
-      Mirim::Token::Token(Mirim::Token::Pipe),
-      Mirim::Token::Token(Mirim::Token::Caret),
-      Mirim::Token::Token(Mirim::Token::AngleBracketLeft),
-      Mirim::Token::Token(Mirim::Token::AngleBracketRight),
+      mirim::token::Token(mirim::token::Pipe),
+      mirim::token::Token(mirim::token::Caret),
+      mirim::token::Token(mirim::token::AngleBracketLeft),
+      mirim::token::Token(mirim::token::AngleBracketRight),
 
-      Mirim::Token::Token(Mirim::Token::Comma),
-      Mirim::Token::Token(Mirim::Token::Period),
-      Mirim::Token::Token(Mirim::Token::Colon),
-      Mirim::Token::Token(Mirim::Token::Pound),
-      Mirim::Token::Token(Mirim::Token::QuestionMark),
+      mirim::token::Token(mirim::token::Comma),
+      mirim::token::Token(mirim::token::Period),
+      mirim::token::Token(mirim::token::Colon),
+      mirim::token::Token(mirim::token::Pound),
+      mirim::token::Token(mirim::token::QuestionMark),
 
-      Mirim::Token::Token(Mirim::Token::LParen),
-      Mirim::Token::Token(Mirim::Token::LBrack),
-      Mirim::Token::Token(Mirim::Token::LBrace),
+      mirim::token::Token(mirim::token::LParen),
+      mirim::token::Token(mirim::token::LBrack),
+      mirim::token::Token(mirim::token::LBrace),
 
-      Mirim::Token::Token(Mirim::Token::RParen),
-      Mirim::Token::Token(Mirim::Token::RBrack),
-      Mirim::Token::Token(Mirim::Token::RBrace),
+      mirim::token::Token(mirim::token::RParen),
+      mirim::token::Token(mirim::token::RBrack),
+      mirim::token::Token(mirim::token::RBrace),
 
-      Mirim::Token::Token(Mirim::Token::Eof),
+      mirim::token::Token(mirim::token::Eof),
   };
 
   for (uint32_t i = 0; i <= input.length(); i++) {

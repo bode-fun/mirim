@@ -4,8 +4,8 @@
 #include <cassert>
 #include <string_view>
 
-namespace Mirim {
-namespace Tokenizer {
+namespace mirim {
+namespace tokenizer {
 
 Tokenizer::Tokenizer(std::string_view input) : source(input) {
   // Skip UTF-8 BOM if present
@@ -17,9 +17,9 @@ Tokenizer::Tokenizer(std::string_view input) : source(input) {
   }
 }
 
-auto Tokenizer::next() -> Token::Token {
+auto Tokenizer::next() -> token::Token {
   if (index >= source.length()) {
-    return Token::Token(Token::Eof);
+    return token::Token(token::Eof);
   }
 
   auto ch = source.at(index);
@@ -28,57 +28,57 @@ auto Tokenizer::next() -> Token::Token {
 
   // A switch doesn't seem to work.
   if (ch == 0) {
-    return Token::Token(Token::Illegal);
+    return token::Token(token::Illegal);
   } else if (ch == '+') {
-    return Token::Token(Token::Plus);
+    return token::Token(token::Plus);
   } else if (ch == '-') {
-    return Token::Token(Token::Minus);
+    return token::Token(token::Minus);
   } else if (ch == '*') {
-    return Token::Token(Token::Star);
+    return token::Token(token::Star);
   } else if (ch == '/') {
-    return Token::Token(Token::Slash);
+    return token::Token(token::Slash);
   } else if (ch == '%') {
-    return Token::Token(Token::Percent);
+    return token::Token(token::Percent);
   } else if (ch == '=') {
-    return Token::Token(Token::Equal);
+    return token::Token(token::Equal);
   } else if (ch == '!') {
-    return Token::Token(Token::Bang);
+    return token::Token(token::Bang);
   } else if (ch == '&') {
-    return Token::Token(Token::Ampersand);
+    return token::Token(token::Ampersand);
   } else if (ch == '|') {
-    return Token::Token(Token::Pipe);
+    return token::Token(token::Pipe);
   } else if (ch == '^') {
-    return Token::Token(Token::Caret);
+    return token::Token(token::Caret);
   } else if (ch == '<') {
-    return Token::Token(Token::AngleBracketLeft);
+    return token::Token(token::AngleBracketLeft);
   } else if (ch == '>') {
-    return Token::Token(Token::AngleBracketRight);
+    return token::Token(token::AngleBracketRight);
   } else if (ch == ',') {
-    return Token::Token(Token::Comma);
+    return token::Token(token::Comma);
   } else if (ch == '.') {
-    return Token::Token(Token::Period);
+    return token::Token(token::Period);
   } else if (ch == ':') {
-    return Token::Token(Token::Colon);
+    return token::Token(token::Colon);
   } else if (ch == '#') {
-    return Token::Token(Token::Pound);
+    return token::Token(token::Pound);
   } else if (ch == '?') {
-    return Token::Token(Token::QuestionMark);
+    return token::Token(token::QuestionMark);
   } else if (ch == '(') {
-    return Token::Token(Token::LParen);
+    return token::Token(token::LParen);
   } else if (ch == '[') {
-    return Token::Token(Token::LBrack);
+    return token::Token(token::LBrack);
   } else if (ch == '{') {
-    return Token::Token(Token::LBrace);
+    return token::Token(token::LBrace);
   } else if (ch == ')') {
-    return Token::Token(Token::RParen);
+    return token::Token(token::RParen);
   } else if (ch == ']') {
-    return Token::Token(Token::RBrack);
+    return token::Token(token::RBrack);
   } else if (ch == '}') {
-    return Token::Token(Token::RBrace);
+    return token::Token(token::RBrace);
   } else {
     assert(false && "Token not implemented");
   }
 }
 
-} // namespace Tokenizer
-} // namespace Mirim
+} // namespace tokenizer
+} // namespace mirim

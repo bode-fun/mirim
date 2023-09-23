@@ -2,8 +2,8 @@
 
 #include <cstdint>
 
-namespace Mirim {
-namespace Token {
+namespace mirim {
+namespace token {
 
 /**
  * The category which a token belongs to.
@@ -133,5 +133,5 @@ public:
 private:
 };
 
-} // namespace Token
-} // namespace Mirim
+} // namespace token
+} // namespace mirim
