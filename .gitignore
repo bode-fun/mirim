@@ -3,5 +3,8 @@
 # Temporary development files
 /Tmp
 
+# Cache folder
+/.cache
+
 # macOS
 .DS_Store
