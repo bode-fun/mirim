@@ -9,12 +9,14 @@ struct Person {
     }
 
     pub fun say_hello(self) string {
-        return `Hello, ${self.name}\n`
+        return fmt.srintf("Hello, %s\n", self.name)
     }
 }
 
-pub fun main(args string[]) {
+pub fun main(args string[]) int {
     let me = Person(name = args[0])
 
     fmt.print(me.say_hello())
+
+    return 0
 }
