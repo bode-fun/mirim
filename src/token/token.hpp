@@ -6,14 +6,13 @@ namespace mirim {
 namespace token {
 
 /**
- * The category which a token belongs to.
+ * @brief The category which a token belongs to.
+ *
  */
 enum Kind : int8_t { // TODO: Is _ a keyword?
   // Special Tokens
   Illegal,
   Eof,
-  Lf,
-  Whitespace,
   Comment,
   // End Special Tokens
 
@@ -122,7 +121,9 @@ enum Kind : int8_t { // TODO: Is _ a keyword?
 };
 
 /**
- * A piece of text, which holds a specific meaning for the compilation process.
+ * @brief A piece of text, which holds a specific meaning for the compilation
+ * process.
+ *
  */
 class Token {
 public:
@@ -132,6 +133,15 @@ public:
 
 private:
 };
+
+/**
+ * @brief decides if a character is seen as white space.
+ *
+ * @param ch
+ * @return true
+ * @return false
+ */
+auto is_whitespace(char ch) -> bool;
 
 } // namespace token
 } // namespace mirim

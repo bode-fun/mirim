@@ -18,8 +18,10 @@ Tokenizer::Tokenizer(std::string_view input) : source(input) {
 }
 
 auto Tokenizer::next() -> token::Token {
+  auto result = token::Token(token::Eof);
+
   if (index >= source.length()) {
-    return token::Token(token::Eof);
+    return result;
   }
 
   auto ch = source.at(index);
@@ -28,56 +30,60 @@ auto Tokenizer::next() -> token::Token {
 
   // A switch doesn't seem to work.
   if (ch == 0) {
-    return token::Token(token::Illegal);
+    result.kind = token::Illegal;
+  } else if (token::is_whitespace(ch)) {
+    result = this->next();
   } else if (ch == '+') {
-    return token::Token(token::Plus);
+    result.kind = token::Plus;
   } else if (ch == '-') {
-    return token::Token(token::Minus);
+    result.kind = token::Minus;
   } else if (ch == '*') {
-    return token::Token(token::Star);
+    result.kind = token::Star;
   } else if (ch == '/') {
-    return token::Token(token::Slash);
+    result.kind = token::Slash;
   } else if (ch == '%') {
-    return token::Token(token::Percent);
+    result.kind = token::Percent;
   } else if (ch == '=') {
-    return token::Token(token::Equal);
+    result.kind = token::Equal;
   } else if (ch == '!') {
-    return token::Token(token::Bang);
+    result.kind = token::Bang;
   } else if (ch == '&') {
-    return token::Token(token::Ampersand);
+    result.kind = token::Ampersand;
   } else if (ch == '|') {
-    return token::Token(token::Pipe);
+    result.kind = token::Pipe;
   } else if (ch == '^') {
-    return token::Token(token::Caret);
+    result.kind = token::Caret;
   } else if (ch == '<') {
-    return token::Token(token::AngleBracketLeft);
+    result.kind = token::AngleBracketLeft;
   } else if (ch == '>') {
-    return token::Token(token::AngleBracketRight);
+    result.kind = token::AngleBracketRight;
   } else if (ch == ',') {
-    return token::Token(token::Comma);
+    result.kind = token::Comma;
   } else if (ch == '.') {
-    return token::Token(token::Period);
+    result.kind = token::Period;
   } else if (ch == ':') {
-    return token::Token(token::Colon);
+    result.kind = token::Colon;
   } else if (ch == '#') {
-    return token::Token(token::Pound);
+    result.kind = token::Pound;
   } else if (ch == '?') {
-    return token::Token(token::QuestionMark);
+    result.kind = token::QuestionMark;
   } else if (ch == '(') {
-    return token::Token(token::LParen);
+    result.kind = token::LParen;
   } else if (ch == '[') {
-    return token::Token(token::LBrack);
+    result.kind = token::LBrack;
   } else if (ch == '{') {
-    return token::Token(token::LBrace);
+    result.kind = token::LBrace;
   } else if (ch == ')') {
-    return token::Token(token::RParen);
+    result.kind = token::RParen;
   } else if (ch == ']') {
-    return token::Token(token::RBrack);
+    result.kind = token::RBrack;
   } else if (ch == '}') {
-    return token::Token(token::RBrace);
+    result.kind = token::RBrace;
   } else {
     assert(false && "Token not implemented");
   }
+
+  return result;
 }
 
 } // namespace tokenizer
